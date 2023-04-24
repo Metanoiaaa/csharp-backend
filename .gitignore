@@ -1,0 +1,4 @@
+mijnDBContext/obj/**
+csharp-backend/obj/**
+csharp-backend/.vs/**
+csharp-backend/bin/**
