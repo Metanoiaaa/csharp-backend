@@ -7,9 +7,12 @@ namespace mijnDBContext
     {
         public int Id { get; set; }
         public string ReceptName { get; set; }
-        public string GebruikersNaam {  get; set; }
+        public string Gebruikersnaam { get; set; }
+        public bool Vegan { get; set; }
+        public int Rating { get; set; }
 
-       // public List<Recept> Recepten {  get; set; } = new List<Recept>();
+
+        // public List<Recept> Recepten {  get; set; } = new List<Recept>();
 
     }
 }
