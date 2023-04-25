@@ -18,12 +18,7 @@ namespace csharp_backend.Controllers
             [HttpGet]
             public IEnumerable<Recept> Get()
             {
-                Recept BroodjeBal = new Recept();
-                BroodjeBal.ReceptName = "Broodjebal";
-               BroodjeBal.GebruikersNaam = "Jaap";
-                _db.Add(BroodjeBal);
-                _db.SaveChanges();
-                return _db.recepten;
+            return null;
             }
 
         // GET: api/<IngredientenController>

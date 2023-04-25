@@ -11,8 +11,8 @@ using mijnDBContext;
 namespace mijnDBContext.Migrations
 {
     [DbContext(typeof(MijnDatabaseContext))]
-    [Migration("20230424141253_InitialACBConnection")]
-    partial class InitialACBConnection
+    [Migration("20230425122952_EersteMigrationCSharpBackend")]
+    partial class EersteMigrationCSharpBackend
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,17 +32,23 @@ namespace mijnDBContext.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("GebruikersNaam")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsVegan")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
 
                     b.Property<string>("ReceptName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UploaderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("recepten");
+                    b.ToTable("Recepten");
                 });
 #pragma warning restore 612, 618
         }
