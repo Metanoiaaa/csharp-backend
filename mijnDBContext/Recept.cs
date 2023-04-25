@@ -7,8 +7,8 @@ namespace mijnDBContext
     {
         public int Id { get; set; }
         public string ReceptName { get; set; }
-        public string Gebruikersnaam { get; set; }
-        public bool Vegan { get; set; }
+        public string UploaderName { get; set; }
+        public bool IsVegan { get; set; }
         public int Rating { get; set; }
 
 

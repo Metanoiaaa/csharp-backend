@@ -29,9 +29,8 @@ namespace mijnDBContext.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Gebruikersnaam")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("IsVegan")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
@@ -40,12 +39,13 @@ namespace mijnDBContext.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Vegan")
-                        .HasColumnType("bit");
+                    b.Property<string>("UploaderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("recepten");
+                    b.ToTable("Recepten");
                 });
 #pragma warning restore 612, 618
         }
