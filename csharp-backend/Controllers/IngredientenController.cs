@@ -18,10 +18,10 @@ namespace csharp_backend.Controllers
             [HttpGet]
             public IEnumerable<Recept> Get()
             {
-                Recept huis = new Recept();
-                huis.ReceptName = "Vlakbij";
-               huis.GebruikersNaam = "doen";
-                _db.Add(huis);
+                Recept BroodjeBal = new Recept();
+                BroodjeBal.ReceptName = "Broodjebal";
+               BroodjeBal.GebruikersNaam = "Jaap";
+                _db.Add(BroodjeBal);
                 _db.SaveChanges();
                 return _db.recepten;
             }
