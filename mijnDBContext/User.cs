@@ -9,7 +9,7 @@ namespace mijnDBContext
     public class User
     {
         public int UserId { get; set; }
-        public string FirstName { get; set; }
+        public string Firstname { get; set; }
         public string Username { get; set; }
         public string Lastname { get; set; }
         public string Password { get; set; }
@@ -20,7 +20,7 @@ namespace mijnDBContext
 
         public int Uploads { get; set; }
 
-        public int Bio { get; set; }
+        public string Bio { get; set; }
 
         public string DateCreate { get; set; }
 
