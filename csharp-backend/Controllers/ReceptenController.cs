@@ -49,8 +49,18 @@ namespace csharp_backend.Controllers
 
             // aanpassen
             dbRecept.ReceptName = newRecept.ReceptName;
-            dbRecept.IsVegan = newRecept.IsVegan;
             dbRecept.UploaderName = newRecept.UploaderName;
+            dbRecept.CookingTime = newRecept.CookingTime;
+            dbRecept.CookingDescription = newRecept.CookingDescription;
+            dbRecept.UtensilsID = newRecept.UtensilsID; 
+            dbRecept.BbqID = newRecept.BbqID;
+            dbRecept.MealType = newRecept.MealType;
+            dbRecept.Rating = newRecept.Rating;
+            dbRecept.RecipePhoto = newRecept.RecipePhoto;
+            dbRecept.Intro = newRecept.Intro;
+            dbRecept.DateCreate = newRecept.DateCreate;
+            dbRecept.DateCreate = dbRecept.DateCreate;
+            dbRecept.IsVegan = newRecept.IsVegan;
 
             // opslaan
             this._mdc.Recepten.Update(dbRecept);

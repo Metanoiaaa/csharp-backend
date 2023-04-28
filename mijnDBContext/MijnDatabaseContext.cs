@@ -11,7 +11,7 @@ namespace mijnDBContext
     {
         public MijnDatabaseContext(DbContextOptions options) : base(options) { }
         public DbSet<Recept> Recepten { get; set; }
-
+        public DbSet<Ingredient> Ingredienten { get; set; }
         public DbSet<User> Users { get; set; }
 
  
