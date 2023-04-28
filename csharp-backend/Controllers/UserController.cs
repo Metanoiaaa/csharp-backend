@@ -8,58 +8,81 @@ namespace csharp_backend.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
-
     {
         private MijnDatabaseContext _mdc;
         public UserController(MijnDatabaseContext mdc)
         {
             _mdc = mdc;
         }
-    
+
         // GET: api/<UserController>
         [HttpGet]
-        public IEnumerable<User> Get()
+        public List<User> Get()
         {
-            User Twan = new User();
-            Twan.Firstname = "Twan";
-            Twan.Lastname = "Biessen";
-            Twan.Email = "twanaap48@yahoo.nl";
-            Twan.Password = "password";
-            Twan.Username = "username";
-            Twan.DateofBirth = "22/04/1995";
-            Twan.Uploads = 11;
-            Twan.DateCreate = "Vandaag";
-            Twan.Bio = "Ik vind koken leuk";
-            Twan.ProfilePicture = "asd";
-            _mdc.Add(Twan);
-            _mdc.SaveChanges();
-            return _mdc.Users;
+
+            return this._mdc.Users.ToList();
 
         }
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public User Get(int id)
         {
-            return "value";
+            return this._mdc.Users.Find(id);
         }
 
         // POST api/<UserController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public User Post([FromBody] User i)
         {
+            this._mdc.Users.Add(i);
+            this._mdc.SaveChanges();
+
+            return i;
         }
+
+
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public bool Put(int id, [FromBody] User NewUser)
         {
+            // Openen
+            User dbUser = this._mdc.Users.Find(id);
+            if (dbUser == null)
+                return false;
+            // Aanpassen
+            dbUser.Firstname = NewUser.Firstname;
+            dbUser.Lastname = NewUser.Lastname;
+            dbUser.Username = NewUser.Username;
+            dbUser.Email = NewUser.Email;
+            dbUser.DateofBirth = NewUser.DateofBirth;
+            dbUser.Uploads = NewUser.Uploads;   
+            dbUser.Bio = NewUser.Bio;
+            dbUser.DateCreate = NewUser.DateCreate;
+            dbUser.ProfilePicture = NewUser.ProfilePicture;
+            dbUser.Password = NewUser.Password;
+
+            // Opslaan
+            this._mdc.Users.Update(dbUser);
+            this._mdc.SaveChanges();
+
+            return true;
         }
 
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            // eerst de User zoeken
+            User dbUser = this._mdc.Users.Find(id);
+            if (dbUser == null)
+                return false;
+
+            this._mdc.Users.Remove(dbUser);
+            this._mdc.SaveChanges();
+            return true;
+
         }
     }
 }

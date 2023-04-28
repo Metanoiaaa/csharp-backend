@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using mijnDBContext;
 
 var builder = WebApplication.CreateBuilder(args);
