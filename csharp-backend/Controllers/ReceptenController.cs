@@ -59,7 +59,7 @@ namespace csharp_backend.Controllers
             dbRecept.RecipePhoto = newRecept.RecipePhoto;
             dbRecept.Intro = newRecept.Intro;
             dbRecept.DateCreate = newRecept.DateCreate;
-            dbRecept.DateCreate = dbRecept.DateCreate;
+            dbRecept.DateEdited = dbRecept.DateEdited;
             dbRecept.IsVegan = newRecept.IsVegan;
 
             // opslaan

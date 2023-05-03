@@ -5,7 +5,7 @@
 namespace mijnDBContext.Migrations
 {
     /// <inheritdoc />
-    public partial class AddMigrationEerstMigration : Migration
+    public partial class EersteNieuweMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,8 +31,17 @@ namespace mijnDBContext.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ReceptName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UploaderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CookingTime = table.Column<int>(type: "int", nullable: false),
+                    CookingDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UtensilsID = table.Column<int>(type: "int", nullable: false),
+                    BbqID = table.Column<int>(type: "int", nullable: false),
+                    MealType = table.Column<int>(type: "int", nullable: false),
                     IsVegan = table.Column<bool>(type: "bit", nullable: false),
-                    Rating = table.Column<int>(type: "int", nullable: false)
+                    Rating = table.Column<int>(type: "int", nullable: false),
+                    RecipePhoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Intro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Diet = table.Column<int>(type: "int", nullable: false),
+                    DateCreate = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,14 +54,14 @@ namespace mijnDBContext.Migrations
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Firstname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Lastname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateofBirth = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Uploads = table.Column<int>(type: "int", nullable: false),
-                    Bio = table.Column<int>(type: "int", nullable: false),
+                    Bio = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateCreate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProfilePicture = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },

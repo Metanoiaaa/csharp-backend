@@ -11,8 +11,8 @@ using mijnDBContext;
 namespace mijnDBContext.Migrations
 {
     [DbContext(typeof(MijnDatabaseContext))]
-    [Migration("20230426091955_TweedeMigration")]
-    partial class TweedeMigration
+    [Migration("20230501120636_Add-Migration Migration01-05-2023")]
+    partial class AddMigrationMigration01052023
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -49,8 +49,36 @@ namespace mijnDBContext.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("BbqID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CookingDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CookingTime")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DateCreate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DateEdited")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Diet")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Intro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsVegan")
                         .HasColumnType("bit");
+
+                    b.Property<int>("MealType")
+                        .HasColumnType("int");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
@@ -59,9 +87,16 @@ namespace mijnDBContext.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RecipePhoto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UploaderName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UtensilsID")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -76,8 +111,9 @@ namespace mijnDBContext.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
-                    b.Property<int>("Bio")
-                        .HasColumnType("int");
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DateCreate")
                         .IsRequired()
@@ -91,7 +127,7 @@ namespace mijnDBContext.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Firstname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -11,8 +11,8 @@ using mijnDBContext;
 namespace mijnDBContext.Migrations
 {
     [DbContext(typeof(MijnDatabaseContext))]
-    [Migration("20230426084303_UserMigration")]
-    partial class UserMigration
+    [Migration("20230428134452_EersteNieuweMigration")]
+    partial class EersteNieuweMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,23 @@ namespace mijnDBContext.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("mijnDBContext.Ingredient", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("IngredientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Ingredienten");
+                });
+
             modelBuilder.Entity("mijnDBContext.Recept", b =>
                 {
                     b.Property<int>("Id")
@@ -32,8 +49,32 @@ namespace mijnDBContext.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("BbqID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CookingDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CookingTime")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DateCreate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Diet")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Intro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsVegan")
                         .HasColumnType("bit");
+
+                    b.Property<int>("MealType")
+                        .HasColumnType("int");
 
                     b.Property<int>("Rating")
                         .HasColumnType("int");
@@ -42,9 +83,16 @@ namespace mijnDBContext.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RecipePhoto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UploaderName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UtensilsID")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -75,7 +123,7 @@ namespace mijnDBContext.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Firstname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
