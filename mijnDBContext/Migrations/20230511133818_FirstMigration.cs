@@ -24,33 +24,33 @@ namespace mijnDBContext.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Recepten",
+                name: "recipes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    RecipeID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ReceptName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UploaderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CookingTime = table.Column<int>(type: "int", nullable: false),
-                    CookingDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UtensilsID = table.Column<int>(type: "int", nullable: false),
-                    BbqID = table.Column<int>(type: "int", nullable: false),
-                    IsVegan = table.Column<bool>(type: "bit", nullable: false),
+                    RecipeTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    PrepTime = table.Column<int>(type: "int", nullable: false),
+                    PrepText = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CookAttireId = table.Column<int>(type: "int", nullable: false),
+                    BBQId = table.Column<int>(type: "int", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
-                    RecipePhoto = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Intro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Diet = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateCreate = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Recepten", x => x.Id);
+                    table.PrimaryKey("PK_recipes", x => x.RecipeID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Firstname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -65,7 +65,7 @@ namespace mijnDBContext.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.Id);
                 });
         }
 
@@ -76,7 +76,7 @@ namespace mijnDBContext.Migrations
                 name: "Ingredienten");
 
             migrationBuilder.DropTable(
-                name: "Recepten");
+                name: "recipes");
 
             migrationBuilder.DropTable(
                 name: "Users");
