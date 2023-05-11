@@ -54,7 +54,7 @@ namespace csharp_backend.Controllers
             dbRecept.CookingDescription = newRecept.CookingDescription;
             dbRecept.UtensilsID = newRecept.UtensilsID; 
             dbRecept.BbqID = newRecept.BbqID;
-            dbRecept.MealType = newRecept.MealType;
+           // dbRecept.MealType = newRecept.MealType;
             dbRecept.Rating = newRecept.Rating;
             dbRecept.RecipePhoto = newRecept.RecipePhoto;
             dbRecept.Intro = newRecept.Intro;

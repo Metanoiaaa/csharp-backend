@@ -12,12 +12,12 @@ namespace mijnDBContext
        public string CookingDescription { get; set; }
        public int UtensilsID { get; set; }
        public int BbqID { get; set; }  
-       public Enum MealType { get; set; }
+       //public Enum MealType { get; set; }
        public bool IsVegan { get; set; }
        public int Rating { get; set; }
        public string RecipePhoto { get; set; }
        public string Intro { get; set;}
-       public Enum Diet { get; set; }
+      // public Enum Diet { get; set; }
        public string DateCreate { get; set; }
 
         // public List<Recept> Recepten {  get; set; } = new List<Recept>();
