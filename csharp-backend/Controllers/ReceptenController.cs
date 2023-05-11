@@ -50,7 +50,7 @@ namespace csharp_backend.Controllers
 
             // aanpassen
 
-            dbRecept.RecipeTitle = newRecept.RecipeTitle;
+            dbRecept.Title = newRecept.Title;
             dbRecept.UserId = newRecept.UserId;
             dbRecept.PrepTime = newRecept.PrepTime;
             dbRecept.PrepText = newRecept.PrepText;

@@ -48,7 +48,7 @@ namespace csharp_backend.Controllers
                 return false;
 
             // aanpassen
-            dbIngredient.IngredientName = newIngredient.IngredientName;
+            dbIngredient.Name = newIngredient.Name;
 
 
             // opslaan
