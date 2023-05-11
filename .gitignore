@@ -4,4 +4,3 @@ csharp-backend/.vs/
 csharp-backend/bin/
 mijnDBContext/bin/
 csharp-backend/appsettings.json
-csharp-backend/appsettings.Development.json

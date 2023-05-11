@@ -49,6 +49,7 @@ namespace csharp_backend.Controllers
                return false;
 
             // aanpassen
+
             dbRecept.RecipeTitle = newRecept.RecipeTitle;
             dbRecept.UserId = newRecept.UserId;
             dbRecept.PrepTime = newRecept.PrepTime;
@@ -56,6 +57,7 @@ namespace csharp_backend.Controllers
             dbRecept.CookAttireId = newRecept.CookAttireId; 
             dbRecept.BBQId = newRecept.BBQId;
             //dbRecept.MealType = newRecept.MealType;
+
             dbRecept.Rating = newRecept.Rating;
             dbRecept.Foto = newRecept.Foto;
             dbRecept.Intro = newRecept.Intro;
