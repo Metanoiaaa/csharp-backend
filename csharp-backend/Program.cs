@@ -10,8 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MijnDatabaseContext>(options => {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
-    // options.UseSqlServer("server=localhost;port=3306;user=root;password=;database=eindopdracht_bbq_recepten");
+    options.UseMySQL(builder.Configuration.GetConnectionString("Default"));
 }
 );
 var app = builder.Build();
