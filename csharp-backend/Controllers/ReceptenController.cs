@@ -20,21 +20,21 @@ namespace csharp_backend.Controllers
         [HttpGet]
         public List<Recept> Get()
         {
-            return this._mdc.Recepten.ToList();
+            return this._mdc.recipes.ToList();
         }
 
         // GET api/<ReceptenController>/5
         [HttpGet("{id}")]
         public Recept? Get(int id)
         {
-            return this._mdc.Recepten.Find(id);
+            return this._mdc.recipes.Find(id);
         }
 
         // POST api/<ReceptenController>
         [HttpPost]
         public void Post([FromBody] Recept r)
         {
-            this._mdc.Recepten.Add(r);
+            this._mdc.recipes.Add(r);
             this._mdc.SaveChanges();
         }
 
@@ -42,28 +42,32 @@ namespace csharp_backend.Controllers
         [HttpPut("{id}")]
         public bool Put(int id, [FromBody] Recept newRecept)
         {
-            // openen
-            Recept dbRecept = this._mdc.Recepten.Find(id);
+            // openen - Regel 46 is iets mee.
+            Recept dbRecept = this._mdc.recipes.Find(id);
             if (dbRecept == null)
-                return false;
+                // return false;
+               return false;
 
             // aanpassen
-            dbRecept.ReceptName = newRecept.ReceptName;
-            dbRecept.UploaderName = newRecept.UploaderName;
-            dbRecept.CookingTime = newRecept.CookingTime;
-            dbRecept.CookingDescription = newRecept.CookingDescription;
-            dbRecept.UtensilsID = newRecept.UtensilsID; 
-            dbRecept.BbqID = newRecept.BbqID;
-           // dbRecept.MealType = newRecept.MealType;
+
+            dbRecept.RecipeTitle = newRecept.RecipeTitle;
+            dbRecept.UserId = newRecept.UserId;
+            dbRecept.PrepTime = newRecept.PrepTime;
+            dbRecept.PrepText = newRecept.PrepText;
+            dbRecept.CookAttireId = newRecept.CookAttireId; 
+            dbRecept.BBQId = newRecept.BBQId;
+            //dbRecept.MealType = newRecept.MealType;
+
             dbRecept.Rating = newRecept.Rating;
-            dbRecept.RecipePhoto = newRecept.RecipePhoto;
+            dbRecept.Foto = newRecept.Foto;
             dbRecept.Intro = newRecept.Intro;
             dbRecept.DateCreate = newRecept.DateCreate;
-            dbRecept.DateCreate = dbRecept.DateCreate;
-            dbRecept.IsVegan = newRecept.IsVegan;
+            //dbRecept.DateEdited = dbRecept.DateEdited;
+            dbRecept.Diet = dbRecept.Diet;
+            //dbRecept.IsVegan = newRecept.IsVegan;
 
             // opslaan
-            this._mdc.Recepten.Update(dbRecept);
+            this._mdc.recipes.Update(dbRecept);
             this._mdc.SaveChanges();
 
             return true;
@@ -74,12 +78,12 @@ namespace csharp_backend.Controllers
         public bool Delete(int id)
         {
             // eerst de ingredient zoeken om te checken of deze wel bestaat
-            Recept dbRecept = this._mdc.Recepten.Find(id);
+            Recept dbRecept = this._mdc.recipes.Find(id);
             if (dbRecept == null)
                 return false;
 
             // dan ingredient verwijderen
-            this._mdc.Recepten.Remove(dbRecept);
+            this._mdc.recipes.Remove(dbRecept);
             this._mdc.SaveChanges();
 
             return true;

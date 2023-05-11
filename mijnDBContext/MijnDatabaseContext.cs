@@ -10,7 +10,7 @@ namespace mijnDBContext
     public class MijnDatabaseContext : DbContext
     {
         public MijnDatabaseContext(DbContextOptions options) : base(options) { }
-        public DbSet<Recept> Recepten { get; set; }
+        public DbSet<Recept> recipes { get; set; }
         public DbSet<Ingredient> Ingredienten { get; set; }
         public DbSet<User> Users { get; set; }
 
