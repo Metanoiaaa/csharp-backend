@@ -10,8 +10,8 @@ using mijnDBContext;
 namespace mijnDBContext.Migrations
 {
     [DbContext(typeof(MijnDatabaseContext))]
-    [Migration("20230511142419_FirstCommit")]
-    partial class FirstCommit
+    [Migration("20230515114851_felix03")]
+    partial class felix03
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,7 @@ namespace mijnDBContext.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("IngredientName")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -38,15 +38,15 @@ namespace mijnDBContext.Migrations
 
             modelBuilder.Entity("mijnDBContext.Recept", b =>
                 {
-                    b.Property<int>("RecipeID")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("BBQId")
-                        .HasColumnType("int");
+                    b.Property<long>("BBQId")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("CookAttireId")
-                        .HasColumnType("int");
+                    b.Property<long>("CookAttireId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("DateCreate")
                         .IsRequired()
@@ -68,20 +68,20 @@ namespace mijnDBContext.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("PrepTime")
-                        .HasColumnType("int");
+                    b.Property<long>("PrepTime")
+                        .HasColumnType("bigint");
 
-                    b.Property<int>("Rating")
-                        .HasColumnType("int");
+                    b.Property<long>("Rating")
+                        .HasColumnType("bigint");
 
-                    b.Property<string>("RecipeTitle")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
 
-                    b.HasKey("RecipeID");
+                    b.HasKey("Id");
 
                     b.ToTable("recipes");
                 });

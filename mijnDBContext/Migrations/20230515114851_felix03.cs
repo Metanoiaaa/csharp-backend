@@ -6,7 +6,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace mijnDBContext.Migrations
 {
     /// <inheritdoc />
-    public partial class FirstCommit : Migration
+    public partial class felix03 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,7 @@ namespace mijnDBContext.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    IngredientName = table.Column<string>(type: "longtext", nullable: false)
+                    Name = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,15 +32,15 @@ namespace mijnDBContext.Migrations
                 name: "recipes",
                 columns: table => new
                 {
-                    RecipeID = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    RecipeTitle = table.Column<string>(type: "longtext", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    PrepTime = table.Column<int>(type: "int", nullable: false),
+                    Title = table.Column<string>(type: "longtext", nullable: false),
+                    UserId = table.Column<long>(type: "bigint", nullable: false),
+                    PrepTime = table.Column<long>(type: "bigint", nullable: false),
                     PrepText = table.Column<string>(type: "longtext", nullable: false),
-                    CookAttireId = table.Column<int>(type: "int", nullable: false),
-                    BBQId = table.Column<int>(type: "int", nullable: false),
-                    Rating = table.Column<int>(type: "int", nullable: false),
+                    CookAttireId = table.Column<long>(type: "bigint", nullable: false),
+                    BBQId = table.Column<long>(type: "bigint", nullable: false),
+                    Rating = table.Column<long>(type: "bigint", nullable: false),
                     Foto = table.Column<string>(type: "longtext", nullable: false),
                     Intro = table.Column<string>(type: "longtext", nullable: false),
                     Diet = table.Column<string>(type: "longtext", nullable: false),
@@ -48,7 +48,7 @@ namespace mijnDBContext.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_recipes", x => x.RecipeID);
+                    table.PrimaryKey("PK_recipes", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
